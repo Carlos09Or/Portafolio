@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carlos Ortiz — Python Developer & Applied AI</title>
+  <meta name="description" content="Carlos Ortiz: Python developer and applied AI enthusiast. Computer Systems Engineering student and undergraduate researcher at Purdue University.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="#top" class="nav__brand">Carlos Ortiz</a>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero container">
+      <p class="eyebrow">Python · Applied AI · SQL · Docker · Git</p>
+      <h1>Carlos Ortiz</h1>
+      <p class="hero__role">Python Developer &amp; Applied AI Enthusiast</p>
+      <p class="hero__lead">
+        Final-year Computer Systems Engineering student at Universidad Tecnológica de Panamá.
+        I write Python to turn AI ideas into working tools: data pipelines, machine-learning
+        models and LLM agents. In 2026 I was an undergraduate research intern at
+        <strong>Purdue University</strong>, where I built a Transformer surrogate model and a
+        ReAct LLM agent for FPGA design-space exploration.
+      </p>
+      <div class="actions">
+        <a class="btn btn--primary" href="#projects">View my projects</a>
+        <a class="btn" data-link="github" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" data-link="linkedin" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" data-link="cv" target="_blank" rel="noopener">Resume (PDF)</a>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="section section--alt">
+      <div class="container">
+        <p class="eyebrow">Projects</p>
+        <h2>What I have built</h2>
+        <p class="section__lead">My undergraduate thesis, the work that grew out of it, and where I started.</p>
+
+        <div class="cards">
+          <article class="card">
+            <span class="status status--progress">Thesis · In progress</span>
+            <h3><a data-link="project_thesis">Conversational FPGA Design-Space Exploration</a></h3>
+            <p>
+              A Transformer surrogate model predicts FPGA resources and latency, and a ReAct LLM agent
+              uses it to search for designs that meet the user's constraints, without running hardware
+              synthesis for every candidate. Research internship at Purdue University.
+            </p>
+            <div class="card__links">
+              <a class="card__link" data-link="project_thesis">View project →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="status status--progress">In progress</span>
+            <h3><a data-link="project_timing">Predicting HLS Synthesis Time and Failure</a></h3>
+            <p>
+              A resumable Python pipeline that streams the wa-hls4ml archives in parallel and extracts
+              real synthesis times from the logs of <span data-metric="timing_projects">—</span> projects.
+              With that data I measured how much faster the surrogate is than synthesis, and trained a
+              model that predicts how long a synthesis will take and whether it will fail.
+            </p>
+            <div class="card__links">
+              <a class="card__link" data-link="project_timing">View project →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="status status--done">JIC 2024 finalist</span>
+            <h3><a data-link="project_irrigation">Automated irrigation system</a></h3>
+            <p>
+              Arduino-based irrigation automation managed from a mobile app. Finalist at Panama's
+              Scientific Initiation Conference (JIC), August 2024.
+            </p>
+            <div class="card__links">
+              <a class="card__link" data-link="project_irrigation">View project →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience" class="section">
+      <div class="container">
+        <p class="eyebrow">Experience &amp; education</p>
+        <h2>Where I have worked and studied</h2>
+
+        <ol class="timeline">
+          <li>
+            <span class="timeline__date">Feb 2026 – Aug 2026</span>
+            <h3>Research Intern · Purdue University</h3>
+            <p class="timeline__place">West Lafayette, Indiana</p>
+            <p>Built the Transformer surrogate model and the LLM agent from my thesis. Presented a poster at the Summer Undergraduate Research Symposium.</p>
+          </li>
+          <li>
+            <span class="timeline__date">2024 – Present</span>
+            <h3>Student Researcher · GIISA, UTP</h3>
+            <p class="timeline__place">Chiriquí, Panama</p>
+            <p>Applied Software Engineering Research Group: software engineering, data science and AI research, from prototyping to testing and documentation.</p>
+          </li>
+          <li>
+            <span class="timeline__date">2022 – Dec 2026 (expected)</span>
+            <h3>B.S. Computer Systems Engineering · UTP</h3>
+            <p class="timeline__place">Universidad Tecnológica de Panamá</p>
+            <p>Sigma Lambda Honor Chapter (top 1.2%). MICI/C-TASC scholarship for semiconductor capacity development, top 28 of 91 national applicants.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="section section--alt">
+      <div class="container">
+        <p class="eyebrow">Skills</p>
+        <h2>What I work with</h2>
+        <div class="skills">
+          <div class="skill-group">
+            <h3>Core</h3>
+            <ul class="tags"><li>Python</li><li>SQL</li><li>Docker</li><li>Git &amp; GitHub</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Applied AI &amp; data</h3>
+            <ul class="tags"><li>pandas</li><li>scikit-learn</li><li>PyTorch</li><li>Hugging Face</li><li>LangChain</li><li>RAG</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Tools</h3>
+            <ul class="tags"><li>Jupyter</li><li>Google Colab</li><li>VS Code</li></ul>
+          </div>
+          <div class="skill-group">
+            <h3>Languages</h3>
+            <ul class="tags"><li>Spanish (native)</li><li>English (advanced)</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2>Let's talk</h2>
+        <p class="section__lead">I'm looking for entry-level roles and internships as a Python developer working on applied AI, starting in 2027.</p>
+        <div class="actions">
+          <a class="btn btn--primary" data-link="email">ortizg.carlosa@gmail.com</a>
+          <a class="btn" data-link="linkedin" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" data-link="github" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Carlos Ortiz · Panama</div>
+  </footer>
+
+  <script src="assets/js/content.js"></script>
+</body>
+</html>

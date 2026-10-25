@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FPGA Design-Space Exploration — Carlos Ortiz</title>
+  <meta name="description" content="Case study: a ReAct LLM agent coupled with a Transformer surrogate model for FPGA design-space exploration. Undergraduate thesis by Carlos Ortiz.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand">Carlos Ortiz</a>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section page-hero">
+      <div class="container">
+        <a class="breadcrumb" href="index.html#projects">← All projects</a>
+        <p class="eyebrow">Case study · Undergraduate thesis · In progress</p>
+        <h1 class="page-title">Conversational FPGA Design-Space Exploration</h1>
+        <p class="section__lead">
+          A ReAct-based LLM agent coupled with a Transformer surrogate model that predicts FPGA
+          resources and latency, so designs can be explored in seconds instead of waiting on
+          hardware synthesis for every candidate.
+        </p>
+
+        <div class="metrics">
+          <div class="metric">
+            <span class="metric__value" data-metric="surrogate_r2">—</span>
+            <span class="metric__label">mean R² across 6 targets on unseen designs</span>
+          </div>
+          <div class="metric">
+            <span class="metric__value" data-metric="dataset_designs">—</span>
+            <span class="metric__label">HLS designs after cleaning (70/15/15 split)</span>
+          </div>
+          <div class="metric">
+            <span class="metric__value" data-metric="surrogate_params">—</span>
+            <span class="metric__label">parameters in the surrogate model</span>
+          </div>
+          <div class="metric">
+            <span class="metric__value" data-metric="agent_grounding">—</span>
+            <span class="metric__label">agent grounding across all design types</span>
+          </div>
+        </div>
+        <p class="note">Values tagged <span class="is-pending">prelim.</span> come from ongoing thesis work and may change.</p>
+
+        <div class="case">
+          <div class="case__block">
+            <h3>The problem</h3>
+            <p>
+              One AI model can be mapped onto an FPGA in thousands of ways. High-Level Synthesis (HLS)
+              reports the resources and latency of each configuration, but every run takes minutes to
+              hours, so testing every option is impractical.
+            </p>
+          </div>
+          <div class="case__block">
+            <h3>The data</h3>
+            <p>
+              The public <em>wa-hls4ml</em> benchmark pairs each neural-network design with its HLS
+              report. I cleaned it down to <span data-metric="dataset_designs">—</span> designs and
+              <span data-metric="surrogate_targets">—</span> prediction targets: BRAM, DSP, FF, LUT,
+              cycles and initiation interval.
+            </p>
+          </div>
+        </div>
+
+        <div class="figures">
+          <figure class="figure">
+            <img src="assets/img/surrogate-architecture.png" alt="Surrogate model: architecture branch and HLS-settings branch fused with bidirectional cross-attention, a shared MLP trunk, six regression heads and a DSP zero/non-zero classifier." loading="lazy">
+            <figcaption>
+              <strong>Surrogate model (PyTorch).</strong> Two branches fused with bidirectional
+              cross-attention, six regression heads, and a dedicated classifier for designs that use
+              zero DSPs.
+            </figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="assets/img/react-agent-loop.png" alt="ReAct loop: objective received, reasoning, action (retrieve, generate, predict), observation of constraints, and repeat until the objective is met." loading="lazy">
+            <figcaption>
+              <strong>ReAct agent.</strong> Turns a natural-language goal into an iterative search:
+              reason, act (retrieve, generate or predict with the surrogate), check the constraints
+              and repeat until the design meets them.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="case">
+          <div class="case__block">
+            <h3>Results so far</h3>
+            <ul>
+              <li>Mean R² of <span data-metric="surrogate_r2">—</span> on unseen designs, beating published baselines on BRAM, DSP, FF and LUT.</li>
+              <li>Constraint satisfaction of <span data-metric="constraint_conv">—</span> for Conv1D/Conv2D and <span data-metric="constraint_dense">—</span> for Dense designs.</li>
+              <li>Performance still depends on the architecture type, which is what I am working on now.</li>
+            </ul>
+          </div>
+          <div class="case__block">
+            <h3>What I did</h3>
+            <ul>
+              <li>Data cleaning and the train/validation/test pipeline in Python.</li>
+              <li>Designed and trained the surrogate (AdamW, 60 epochs).</li>
+              <li>Built the agent and its tools, plus a benchmark to evaluate it.</li>
+              <li>Presented the work at the Purdue Summer Undergraduate Research Symposium (July 2026).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case case--single">
+          <div class="case__block">
+            <h3>Next steps</h3>
+            <ul>
+              <li>Confirm the agent's candidates with real HLS runs.</li>
+              <li>Expand the benchmark and improve candidate generation for Dense designs.</li>
+              <li>Compare exploration time against a conventional HLS-based search.</li>
+            </ul>
+          </div>
+        </div>
+
+        <ul class="tags">
+          <li>Python</li><li>PyTorch</li><li>Transformers</li><li>LLM agents</li><li>ReAct</li><li>RAG</li><li>pandas</li><li>Git</li>
+        </ul>
+
+        <div class="actions">
+          <a class="btn btn--primary" data-link="poster" target="_blank" rel="noopener">Research poster (PDF)</a>
+          <a class="btn" data-link="thesis_repo" target="_blank" rel="noopener">Code on GitHub</a>
+          <a class="btn" href="index.html#projects">← Back to projects</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Carlos Ortiz · Panama</div>
+  </footer>
+
+  <script src="assets/js/content.js"></script>
+</body>
+</html>
